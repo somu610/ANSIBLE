@@ -1,0 +1,12 @@
+---
+- name: Copy file from worker-01 to worker-02
+  hosts: worker-01
+  tasks:
+    - name: Copy file to worker-02
+      ansible.builtin.copy:
+        src: /root/jaddu.yml
+        dest: /root/
+      delegate_to: worker-02
+      vars:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+

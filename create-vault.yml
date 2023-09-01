@@ -1,0 +1,9 @@
+---
+- name: Create Ansible Vault
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Decrypt the file with Ansible Vault
+      shell: ansible-vault encrypt /etc/ansible/secret.txt
+      args:
+        executable: /bin/bash

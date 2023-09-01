@@ -1,0 +1,13 @@
+- name: Create Files Playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create files
+      file:
+        path: "{{ item }}"
+        state: touch
+      with_items:
+        - /root/msd1.txt
+        - /root/msd2.txt
+        - /root/msd3.txt
+        - /root/msd4.txt
